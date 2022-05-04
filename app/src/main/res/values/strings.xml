@@ -9,4 +9,16 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="wildfires">Wildfires</string>
+    <string name="show_more">Show more</string>
+    <string name="categories">Categories</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="volcanos">Volcanos</string>
+    <string name="mars">Mars</string>
+    <string name="mars_icon">Mars Icon</string>
+    <string name="volcano_icon">Volcano Icon</string>
+    <string name="wildfire_icon">Wildfire icon</string>
+    <string name="spaceship">Spaceship</string>
+    <string name="image_of_day">Image of Day</string>
 </resources>
