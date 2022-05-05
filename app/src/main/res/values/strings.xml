@@ -21,4 +21,5 @@
     <string name="wildfire_icon">Wildfire icon</string>
     <string name="spaceship">Spaceship</string>
     <string name="image_of_day">Image of Day</string>
+    <string name="title_activity_image">ImageActivity</string>
 </resources>

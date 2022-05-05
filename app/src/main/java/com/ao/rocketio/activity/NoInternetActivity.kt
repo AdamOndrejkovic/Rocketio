@@ -1,11 +1,12 @@
-package com.ao.rocketio
+package com.ao.rocketio.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.ao.rocketio.R
 
-class HomeActivity : AppCompatActivity() {
+class NoInternetActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        setContentView(R.layout.activity_no_internet)
     }
 }

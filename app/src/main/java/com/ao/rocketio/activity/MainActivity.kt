@@ -1,8 +1,9 @@
-package com.ao.rocketio
+package com.ao.rocketio.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.ao.rocketio.R
 import java.util.*
 import kotlin.concurrent.schedule
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    tools:context=".activity.HomeActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -27,26 +27,26 @@
                 android:textSize="32sp" />
 
             <androidx.fragment.app.FragmentContainerView
-                android:name="com.ao.rocketio.WildfireFragment"
+                android:name="com.ao.rocketio.fragment.WildfireFragment"
                 android:id="@+id/WildfireFragment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 />
 
             <androidx.fragment.app.FragmentContainerView
-                android:name="com.ao.rocketio.VolcanosFragment"
+                android:name="com.ao.rocketio.fragment.VolcanosFragment"
                 android:id="@+id/VolcanoFragment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
             <androidx.fragment.app.FragmentContainerView
-                android:name="com.ao.rocketio.MarsFragment"
+                android:name="com.ao.rocketio.fragment.MarsFragment"
                 android:id="@+id/MarsFragment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
             <androidx.fragment.app.FragmentContainerView
-                android:name="com.ao.rocketio.ImageFragment"
+                android:name="com.ao.rocketio.fragment.ImageFragment"
                 android:id="@+id/ImageFragment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>

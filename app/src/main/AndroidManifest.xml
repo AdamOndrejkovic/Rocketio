@@ -13,33 +13,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Rocketio">
-
-        <!--API Authentication-->
+        <activity
+            android:name=".activity.MarsActivity"
+            android:exported="false" />
+        <!-- API Authentication -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="${MAPS_API_KEY}" />
-        <!--Version of Google play compiled-->
+            android:value="${MAPS_API_KEY}" /> <!-- Version of Google play compiled -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-
         <activity
-            android:name=".ErrorActivity"
+            android:name=".activity.ErrorActivity"
             android:exported="false" />
         <activity
-            android:name=".NoInternetActivity"
+            android:name=".activity.NoInternetActivity"
             android:exported="false" />
         <activity
-            android:name=".EventActivity"
+            android:name=".activity.EventActivity"
             android:exported="false"
             android:label="@string/title_activity_event"
             android:theme="@style/Theme.Rocketio.NoActionBar" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".activity.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

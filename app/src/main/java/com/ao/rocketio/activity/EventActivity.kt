@@ -1,7 +1,8 @@
-package com.ao.rocketio
+package com.ao.rocketio.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.ao.rocketio.R
 import com.ao.rocketio.data.Data
 import com.ao.rocketio.databinding.ActivityEventBinding
 import com.google.android.gms.maps.CameraUpdateFactory
