@@ -2,8 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ao.rocketio">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -14,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Rocketio">
         <activity
-            android:name=".activity.MarsActivity"
+            android:name=".MarsActivity"
             android:exported="false" />
         <!-- API Authentication -->
         <meta-data
@@ -25,21 +27,21 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".activity.ErrorActivity"
+            android:name=".ErrorActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.NoInternetActivity"
+            android:name=".NoInternetActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.EventActivity"
+            android:name=".EventActivity"
             android:exported="false"
             android:label="@string/title_activity_event"
             android:theme="@style/Theme.Rocketio.NoActionBar" />
         <activity
-            android:name=".activity.HomeActivity"
+            android:name=".HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
