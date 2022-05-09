@@ -6,11 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.ao.rocketio.activity.EventActivity
+import com.ao.rocketio.EventActivity
 import com.ao.rocketio.enums.EventTypes
 import com.ao.rocketio.R
 import kotlinx.android.synthetic.main.fragment_volcanos.*
-import kotlinx.android.synthetic.main.fragment_wildfire.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

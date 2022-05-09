@@ -7,13 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.ao.rocketio.R
-import com.ao.rocketio.activity.EventActivity
-import com.ao.rocketio.activity.MainActivity
-import com.ao.rocketio.activity.MarsActivity
-import com.ao.rocketio.enums.EventTypes
+import com.ao.rocketio.MarsActivity
 import kotlinx.android.synthetic.main.fragment_image.*
-import kotlinx.android.synthetic.main.fragment_mars.*
-import kotlinx.android.synthetic.main.fragment_wildfire.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

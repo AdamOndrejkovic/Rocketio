@@ -1,4 +1,4 @@
-package com.ao.rocketio.activity
+package com.ao.rocketio
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
