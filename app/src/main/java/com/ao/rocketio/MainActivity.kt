@@ -11,8 +11,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        supportActionBar?.hide()
-
         Timer().schedule(2000) {
             val intent = Intent(this@MainActivity, HomeActivity::class.java)
             startActivity(intent)

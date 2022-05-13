@@ -3,6 +3,8 @@ package com.ao.rocketio
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import com.ao.rocketio.R
 import com.ao.rocketio.enums.EventTypes
 import kotlinx.android.synthetic.main.activity_home.*
@@ -13,29 +15,61 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
         btnImage.setOnClickListener { _ ->
-            Intent(this , MarsActivity::class.java ).also {
+            Intent(this@HomeActivity, ImageActivity::class.java ).also {
                 startActivity(it)
             }
         }
 
         btnWildfire.setOnClickListener { _ ->
-            Intent(this , EventActivity::class.java ).also {
-                it.putExtra("EVENT_TYPE", EventTypes.Wildfire)
+            Intent(this@HomeActivity , EventActivity::class.java ).also {
+                it.putExtra("EVENT_TYPE", EventTypes.Wildfire.toString())
                 startActivity(it)
             }
         }
 
         btnVolcano.setOnClickListener { _ ->
-            Intent(this, EventActivity::class.java ).also {
-                it.putExtra("EVENT_TYPE", EventTypes.Wildfire)
+            Intent(this@HomeActivity, EventActivity::class.java ).also {
+                it.putExtra("EVENT_TYPE", EventTypes.Volcanos)
                 startActivity(it)
             }
         }
 
         btnMars.setOnClickListener { _ ->
-            Intent(this , MarsActivity::class.java ).also {
+            Intent(this@HomeActivity , MarsActivity::class.java ).also {
                 startActivity(it)
             }
         }
+    }
+
+    //Used to instantiate menu XML into Menu objects
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        //Error occours when using androidx.core...
+        inflater.inflate(R.menu.navigation_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.iProfile -> {
+                Intent(this, ProfileActivity::class.java).also {
+                    startActivity(it)
+                }
+            }
+            R.id.iSettings -> {
+                Intent(this, SettingsActivity::class.java).also {
+                    startActivity(it)
+                }
+            }
+            R.id.iAbout -> {
+                Intent(this, AboutActivity::class.java).also {
+                    startActivity(it)
+                }
+            }
+            else -> {
+                return super.onOptionsItemSelected(item)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

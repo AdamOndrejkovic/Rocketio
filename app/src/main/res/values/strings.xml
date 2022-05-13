@@ -22,4 +22,9 @@
     <string name="spaceship">Spaceship</string>
     <string name="image_of_day">Image of Day</string>
     <string name="title_activity_image">ImageActivity</string>
+    <string name="about">About</string>
+    <string name="settings">Settings</string>
+    <string name="profile">Profile</string>
+    <string name="profile_picture">Profile picture</string>
+    <string name="take_picture">Take picture</string>
 </resources>

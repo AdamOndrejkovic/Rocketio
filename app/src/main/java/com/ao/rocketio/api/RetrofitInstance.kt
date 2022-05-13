@@ -13,4 +13,20 @@ object RetrofitInstance {
             .build()
             .create(Eonet::class.java)
     }
+
+    val apod: Apod by lazy {
+        Retrofit.Builder()
+            .baseUrl("https://api.nasa.gov")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(Apod::class.java)
+    }
+
+    val insight: Insight by lazy {
+        Retrofit.Builder()
+            .baseUrl("https://api.nasa.gov")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(Insight::class.java)
+    }
 }

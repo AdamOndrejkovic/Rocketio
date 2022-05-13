@@ -1,5 +1,6 @@
 package com.ao.rocketio.data
 
+/* Event for map */
 data class Event(
     val categories: List<Category>,
     val description: String,

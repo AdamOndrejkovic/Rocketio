@@ -8,5 +8,8 @@ class MarsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mars)
+
+        supportActionBar!!.title = getString(R.string.app_name)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
     }
 }
