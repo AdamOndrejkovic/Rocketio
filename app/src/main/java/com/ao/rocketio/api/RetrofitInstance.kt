@@ -24,7 +24,7 @@ object RetrofitInstance {
 
     val insight: Insight by lazy {
         Retrofit.Builder()
-            .baseUrl("https://api.nasa.gov")
+            .baseUrl("https://api.maas2.apollorion.com")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(Insight::class.java)

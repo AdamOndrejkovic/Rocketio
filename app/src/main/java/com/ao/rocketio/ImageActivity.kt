@@ -36,9 +36,9 @@ class ImageActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityImageBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         supportActionBar!!.title = getString(R.string.app_name)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
