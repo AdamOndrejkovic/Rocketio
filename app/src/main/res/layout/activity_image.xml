@@ -18,7 +18,8 @@
         app:lottie_autoPlay="true"
         app:lottie_fileName="39589-space-ride.json"
         app:lottie_loop="true"
-        app:lottie_speed="1" />
+        app:lottie_speed="1"
+        android:layout_gravity="center"/>
 
     <ScrollView
         android:layout_width="match_parent"

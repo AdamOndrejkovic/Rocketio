@@ -1,5 +1,6 @@
 package com.ao.rocketio
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.media.AudioAttributes
@@ -69,12 +70,16 @@ class ImageActivity : AppCompatActivity() {
 
             }else {
                 Log.e(TAGIMAGE, "Response not succesfull")
+                Intent(this@ImageActivity, ErrorActivity::class.java).also {
+                    startActivity(it)
+                }
             }
         }
 
 
     }
 
+    // image setup
     private fun setupImageView() {
         val imageView = ImageView(this)
         val layoutParams = LinearLayout.LayoutParams(
@@ -82,6 +87,7 @@ class ImageActivity : AppCompatActivity() {
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
 
+        // creating new thread in which image from url is resolved
         val executor = Executors.newSingleThreadExecutor()
 
         val handler = Handler(Looper.getMainLooper())
@@ -107,8 +113,8 @@ class ImageActivity : AppCompatActivity() {
         binding.flMediaContainer.addView(imageView)
     }
 
+    // video setup
     private fun setupVideoView() {
-        Log.e(TAGIMAGE, "Video start")
         val videoView = VideoView(this)
         val layoutParams = LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,

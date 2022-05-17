@@ -8,17 +8,17 @@ import retrofit2.http.Headers
 //The Earth Observatory Natural Event Tracker
 interface Eonet {
 
-    //Headers neccessary for CORS
+    //Api call to get all the data
     @Headers("Accept: application/json")
     @GET("/api/v2.1/events")
     suspend fun getData(): Response<Data>
 
-    //Headers neccessary for CORS
+    //Api call to get wildfires by their id
     @Headers("Accept: application/json")
     @GET("/api/v2.1/categories/8")
     suspend fun getWildfires(): Response<Data>
 
-    //Headers neccessary for CORS
+    //Api call to get volcanos by their id
     @Headers("Accept: application/json")
     @GET("/api/v2.1/categories/12")
     suspend fun getVolcanos(): Response<Data>

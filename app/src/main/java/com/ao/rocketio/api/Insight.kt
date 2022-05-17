@@ -8,7 +8,7 @@ import retrofit2.http.Headers
 //Mars Weather Service API
 interface Insight {
 
-    //Headers neccessary for CORS
+    //Mars weather api call "." => specifies retrofit url as absolute
     @Headers("Accept: application/json")
     @GET(".")
     suspend fun getData(): Response<Weather>

@@ -14,12 +14,14 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        // starts the image activity
         btnImage.setOnClickListener { _ ->
             Intent(this@HomeActivity, ImageActivity::class.java ).also {
                 startActivity(it)
             }
         }
 
+        // starts the event activity with event type of wildfire
         btnWildfire.setOnClickListener { _ ->
             Intent(this@HomeActivity , EventActivity::class.java ).also {
                 it.putExtra("EVENT_TYPE", EventTypes.Wildfire.toString())
@@ -27,6 +29,7 @@ class HomeActivity : AppCompatActivity() {
             }
         }
 
+        // starts the event activity with event type of volcanos
         btnVolcano.setOnClickListener { _ ->
             Intent(this@HomeActivity, EventActivity::class.java ).also {
                 it.putExtra("EVENT_TYPE", EventTypes.Volcanos)
@@ -34,6 +37,7 @@ class HomeActivity : AppCompatActivity() {
             }
         }
 
+        // starts the mars weather activity
         btnMars.setOnClickListener { _ ->
             Intent(this@HomeActivity , MarsActivity::class.java ).also {
                 startActivity(it)

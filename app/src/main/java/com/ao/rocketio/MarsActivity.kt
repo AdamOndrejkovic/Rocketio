@@ -1,5 +1,6 @@
 package com.ao.rocketio
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -42,6 +43,8 @@ class MarsActivity : AppCompatActivity() {
             if (response.isSuccessful && response.body() != null) {
               marsWatherData = response.body()
 
+              // setup of the content within the activity
+
               tvSolData.text = marsWatherData?.sol.toString()
 
               tvMinTempData.text = marsWatherData?.min_temp.toString()
@@ -52,6 +55,9 @@ class MarsActivity : AppCompatActivity() {
 
             }else {
                 Log.e(TAGIMAGE, "Response not succesfull")
+                Intent(this@MarsActivity, ErrorActivity::class.java).also {
+                    startActivity(it)
+                }
             }
         }
     }

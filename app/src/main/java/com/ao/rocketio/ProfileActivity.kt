@@ -16,6 +16,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.FileProvider
+import com.ao.rocketio.data.UserRepositoryInDB
+import kotlinx.android.synthetic.main.activity_profile.*
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
@@ -35,6 +37,10 @@ class ProfileActivity : AppCompatActivity() {
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         checkPermissions()
+
+        val mRep = UserRepositoryInDB.get()
+        val user = mRep.getById(1)
+        etName.setText(user.value?.name)
     }
 
     fun onTakePicture(view: View) {

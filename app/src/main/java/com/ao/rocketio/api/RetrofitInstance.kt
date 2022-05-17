@@ -6,6 +6,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitInstance {
 
     //By lazy we delay the init to when we first access the api
+
+    //Retrofit instance for eonet api to retreive data
     val eonet: Eonet by lazy {
         Retrofit.Builder()
             .baseUrl("https://eonet.gsfc.nasa.gov")
@@ -14,6 +16,7 @@ object RetrofitInstance {
             .create(Eonet::class.java)
     }
 
+    //Retrofit instance for apod api to retreive data
     val apod: Apod by lazy {
         Retrofit.Builder()
             .baseUrl("https://api.nasa.gov")
@@ -22,6 +25,7 @@ object RetrofitInstance {
             .create(Apod::class.java)
     }
 
+    //Retrofit instance for insight api to retreive data
     val insight: Insight by lazy {
         Retrofit.Builder()
             .baseUrl("https://api.maas2.apollorion.com")

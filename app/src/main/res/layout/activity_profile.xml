@@ -5,17 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileActivity">
-
-    <ImageView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imgProfile"
-        android:src="@drawable/profile"
-        android:layout_alignParentTop="true"
-        android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
-        tools:ignore="MissingConstraints"
-        android:contentDescription="@string/profile_picture" />
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgProfile"
+            android:src="@drawable/profile"
+            android:layout_alignParentTop="true"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            tools:ignore="MissingConstraints"
+            android:contentDescription="@string/profile_picture" />
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btnTakePicture"
@@ -23,8 +38,7 @@
         android:layout_height="wrap_content"
         android:onClick="onTakePicture"
         android:text="@string/take_picture"
-        tools:layout_editor_absoluteX="134dp"
-        tools:layout_editor_absoluteY="667dp"
-        />
+        tools:layout_editor_absoluteX="128dp"
+        tools:layout_editor_absoluteY="652dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

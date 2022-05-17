@@ -1,5 +1,6 @@
 package com.ao.rocketio.data
 
+/* Data class for Mars Weather feature */
 data class Weather(
     val TZ_Data: String,
     val abs_humidity: Any,

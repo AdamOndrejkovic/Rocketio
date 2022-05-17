@@ -1,5 +1,6 @@
 package com.ao.rocketio
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -32,11 +33,8 @@ class EventActivity : AppCompatActivity(), OnMapReadyCallback {
         binding = ActivityEventBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // retreive extras including the event type
         val extras = intent.getStringExtra("EVENT_TYPE")
-
-        if (extras != null) {
-            Log.e(TAGEVENT, extras)
-        }
 
         // Get a handle to the fragment and register the callback
         val mapFragment = supportFragmentManager
@@ -47,6 +45,7 @@ class EventActivity : AppCompatActivity(), OnMapReadyCallback {
         lifecycleScope.launchWhenCreated {
             binding.progressBar.isVisible = true
             val response = try {
+                // api call based on the event type
                 if (extras?.equals(EventTypes.Wildfire.toString()) == true){
                     RetrofitInstance.eonet.getWildfires()
                 }else {
@@ -70,6 +69,9 @@ class EventActivity : AppCompatActivity(), OnMapReadyCallback {
                 onMapReady(mMap)
             } else {
                 Log.e(TAGEVENT, "Response not succesfull")
+                Intent(this@EventActivity, ErrorActivity::class.java).also {
+                    startActivity(it)
+                }
             }
             binding.progressBar.isVisible = false
         }
@@ -79,14 +81,16 @@ class EventActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
+        //re-check if data is not null
         if (dataFromApi != null) {
-            Log.d("Markers", "markers")
+            //for all events in api data marker is placed on the map
             for (event in dataFromApi!!.events){
                 val markerPosition = LatLng(event.geometries[0].coordinates[1], event.geometries[0].coordinates[0])
                 mMap.addMarker(MarkerOptions()
                     .position(markerPosition)
                     .title(event.title)
                 )
+                // movoes camera to the position of marker
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(markerPosition))
             }
         }

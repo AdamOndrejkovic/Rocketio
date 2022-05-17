@@ -32,4 +32,6 @@
     <string name="max_temperature">Max Temperature</string>
     <string name="sunrise">Sunrise</string>
     <string name="sunset">Sunset</string>
+    <string name="go_home">Go home</string>
+    <string name="retry">Retry</string>
 </resources>
