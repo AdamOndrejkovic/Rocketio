@@ -26,9 +26,8 @@ class MarsActivity : AppCompatActivity() {
         binding = ActivityMarsBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_mars)
 
-        supportActionBar!!.title = getString(R.string.app_name)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-
+        // corutine that starts when activity is created and is destroyed when cancelled
+        // corutine tries to get data from api
         lifecycleScope.launchWhenCreated {
             val response = try {
                 RetrofitInstance.insight.getData()
@@ -40,6 +39,7 @@ class MarsActivity : AppCompatActivity() {
                 return@launchWhenCreated
             }
 
+            // if response successfull data is set to activity and displayed
             if (response.isSuccessful && response.body() != null) {
               marsWatherData = response.body()
 
@@ -54,6 +54,7 @@ class MarsActivity : AppCompatActivity() {
               tvSunsetData.text = marsWatherData?.sunset
 
             }else {
+                // if case of error user redirected to error activity
                 Log.e(TAGIMAGE, "Response not succesfull")
                 Intent(this@MarsActivity, ErrorActivity::class.java).also {
                     startActivity(it)

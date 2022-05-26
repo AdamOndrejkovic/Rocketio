@@ -34,4 +34,12 @@
     <string name="sunset">Sunset</string>
     <string name="go_home">Go home</string>
     <string name="retry">Retry</string>
+    <string name="welcome_to_rocketio">Welcome to Rocketio</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="save_user">Save user</string>
+    <string name="what_is_rocketio">What is Rocketio</string>
+    <string name="about_description">Rocketio is a space app for everyone that interested in the galaxy. In the app you can find some interesting facts. Feel free to explore.</string>
+    <string name="key_features">Key features</string>
+    <string name="about_features_description">Main features you can find in menu is natural event tracker. Currently you can see live wildfires and volcanos. For events outside of earth visit Mars Weather that focuses on weather changes on Mars. Last feature is Image of the day with daily update of image and it\'s descriptions.</string>
 </resources>

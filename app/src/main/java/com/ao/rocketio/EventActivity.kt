@@ -1,21 +1,29 @@
 package com.ao.rocketio
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import com.ao.rocketio.api.RetrofitInstance
+import com.ao.rocketio.data.BEUser
 import com.ao.rocketio.data.Data
+import com.ao.rocketio.data.UserRepositoryInDB
 import com.ao.rocketio.databinding.ActivityEventBinding
 import com.ao.rocketio.enums.EventTypes
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptor
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import kotlinx.android.synthetic.main.activity_profile.*
 import retrofit2.HttpException
 import java.io.IOException
 
@@ -26,9 +34,11 @@ class EventActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityEventBinding
     private var dataFromApi: Data? = null
+    private var eventType: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        UserRepositoryInDB.initialize(this)
 
         binding = ActivityEventBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -47,6 +57,7 @@ class EventActivity : AppCompatActivity(), OnMapReadyCallback {
             val response = try {
                 // api call based on the event type
                 if (extras?.equals(EventTypes.Wildfire.toString()) == true){
+                    eventType = EventTypes.Wildfire.toString()
                     RetrofitInstance.eonet.getWildfires()
                 }else {
                     RetrofitInstance.eonet.getVolcanos()
@@ -63,7 +74,6 @@ class EventActivity : AppCompatActivity(), OnMapReadyCallback {
             Log.e(TAGEVENT, response.message())
             Log.e(TAGEVENT, response.isSuccessful.toString())
             if (response.isSuccessful && response.body() != null) {
-                //!! is not null
                 dataFromApi = response.body()!!
                 Log.e(TAGEVENT, dataFromApi.toString())
                 onMapReady(mMap)
@@ -81,6 +91,17 @@ class EventActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
+        var height = 50
+        var width = 50
+        var icon: Bitmap? = null
+        if (eventType?.equals(EventTypes.Wildfire.toString()) == true){
+            icon = BitmapFactory.decodeResource(this.resources, R.drawable.fire)
+        }else {
+            icon = BitmapFactory.decodeResource(this.resources, R.drawable.volcano_icon)
+        }
+
+        var minimize = BitmapDescriptorFactory.fromBitmap(Bitmap.createScaledBitmap(icon, width, height, false))
+
         //re-check if data is not null
         if (dataFromApi != null) {
             //for all events in api data marker is placed on the map
@@ -89,9 +110,24 @@ class EventActivity : AppCompatActivity(), OnMapReadyCallback {
                 mMap.addMarker(MarkerOptions()
                     .position(markerPosition)
                     .title(event.title)
+                    .icon(minimize)
                 )
-                // movoes camera to the position of marker
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(markerPosition))
+            }
+
+            var position: LatLng? = null
+
+            try {
+                // movoes camera to the position
+                val mRep = UserRepositoryInDB.get()
+                val getUserObserver = Observer<BEUser> { user ->
+                    position = LatLng(user.latitude,user.longitude)
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(position!!))
+                }
+                mRep.getById(1).observe(this, getUserObserver)
+            }catch (e: Exception) {
+                //Easv location
+                position = LatLng(55.487724007387115, 8.44689373151934)
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(position!!))
             }
         }
     }

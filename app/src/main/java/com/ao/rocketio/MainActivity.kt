@@ -17,11 +17,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //Initialize database
-        UserRepositoryInDB.initialize(this)
-        /*val mRep = UserRepositoryInDB.get()
-        mRep.insert(BEUser(0, "John Doe", "Captain", 55.485527, 8.425100 ))*/
-
         val hasNetwork = checkInternetConnection(this)
         if (hasNetwork){
             //Animation loader

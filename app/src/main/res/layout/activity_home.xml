@@ -19,13 +19,6 @@
             android:orientation="vertical"
             >
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="@string/categories"
-                android:textAlignment="center"
-                android:textSize="32sp" />
-
             <!-- Wildfire -->
             <RelativeLayout
                 android:layout_width="match_parent"

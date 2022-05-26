@@ -40,10 +40,7 @@ class ImageActivity : AppCompatActivity() {
         binding = ActivityImageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar!!.title = getString(R.string.app_name)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-
-
+        // corutine retreives the api data
         lifecycleScope.launchWhenCreated {
             val response = try {
                 RetrofitInstance.apod.getData()
@@ -54,7 +51,7 @@ class ImageActivity : AppCompatActivity() {
                 Log.e(TAGIMAGE, "IOException")
                 return@launchWhenCreated
             }
-
+            // in case of succesfful response data is set as well method called for showing the relevant media
             if (response.isSuccessful && response.body() != null) {
                 imageDataFromApi = response.body()
                 Log.e(TAGIMAGE, "Loaded")
@@ -67,7 +64,7 @@ class ImageActivity : AppCompatActivity() {
                 }else {
                     setupImageView()
                 }
-
+            // in case of error, error message is displayed
             }else {
                 Log.e(TAGIMAGE, "Response not succesfull")
                 Intent(this@ImageActivity, ErrorActivity::class.java).also {

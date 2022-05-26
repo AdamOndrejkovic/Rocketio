@@ -6,20 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".ProfileActivity">
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ImageView
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="400dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:background="@drawable/astronaut">
+
+
+                <ImageView
+                    android:id="@+id/imgProfile"
+                    android:layout_width="170dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="115dp"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/profile_picture"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/profile"
+                    tools:ignore="MissingConstraints" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/etRank"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imgProfile"
-            android:src="@drawable/profile"
-            android:layout_alignParentTop="true"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            tools:ignore="MissingConstraints"
-            android:contentDescription="@string/profile_picture" />
+            />
 
         <EditText
             android:id="@+id/etName"
@@ -29,16 +51,94 @@
             android:layout_height="wrap_content"
             />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:text="@string/latitude"
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="@string/longitude"
+                android:textSize="18sp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+
+            <EditText
+                android:id="@+id/etLatitude"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                />
+
+            <EditText
+                android:id="@+id/etLongitude"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="50dp"
+            >
+
+
+            <Button
+                android:id="@+id/btnTakePicture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onTakePicture"
+                android:text="@string/take_picture"
+                android:layout_gravity="center"
+                android:layout_marginRight="20dp"
+                />
+
+            <Button
+                android:id="@+id/btnSaveUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onSaveUser"
+                android:text="@string/save_user"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                />
+
+        </LinearLayout>
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/btnTakePicture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onTakePicture"
-        android:text="@string/take_picture"
-        tools:layout_editor_absoluteX="128dp"
-        tools:layout_editor_absoluteY="652dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
